@@ -1,61 +1,55 @@
 
-@each $color in $color-list {
+@each $property in $color-properties {  
+  @each $color in $color-list {    
+    @each $modifier in $color-modifiers {
 
-  $alias: nth($color, 1);
-  $value: nth($color, 2);
+      $propertyAlias: nth($property, 1);
+      $propertyName: nth($property, 2);
 
-  .c-#{$alias} {
-    color: $value
-  }
-  .c-#{$alias}\:hover:hover {
-    color: $value
-  }
-  .bgc-#{$alias} {
-    background-color: $value
-  }
-  .bgc-#{$alias}\:hover:hover {
-    background-color: $value
-  }
+      $colorAlias: nth($color, 1);
+      $colorValue: nth($color, 2);
+      
+      $modifierAlias: nth($modifier, 1);
+      $modifyMethod: nth($modifier, 2);
+      $modifyValue: nth($modifier, 3);
 
-  .bc-#{$alias} {
-    border-color: $value
-  }
-  .bc-#{$alias}\:hover:hover {
-    border-color: $value
-  }
-
-  @each $breakpoint in $breakpoints {
-
-    $media: nth($breakpoint, 1);
-    $condition: nth($breakpoint, 2);
-
-    @media #{$condition} {
-
-      .c-#{$alias}\@#{$media} {
-        color: $value
+      .#{$propertyAlias}-#{$colorAlias} {
+        #{$propertyName}: $colorValue;
+      }
+      .#{$propertyAlias}-#{$colorAlias}\:hover:hover {
+        #{$propertyName}: $colorValue;
+      }
+      .#{$propertyAlias}-#{$colorAlias}#{$modifierAlias} {
+        #{$propertyName}: call($modifyMethod, $colorValue, $modifyValue);
+      }
+      .#{$propertyAlias}-#{$colorAlias}#{$modifierAlias}\:hover:hover {
+        #{$propertyName}: call($modifyMethod, $colorValue, $modifyValue);
       }
 
-      .c-#{$alias}\@#{$media}\:hover:hover {
-        color: $value
-      }
+      @each $breakpoint in $breakpoints {
+    
+        $media: nth($breakpoint, 1);
+        $condition: nth($breakpoint, 2);
+    
+        @media #{$condition} {
 
-      .bgc-#{$alias}\@#{$media} {
-        background-color: $value
+          .#{$propertyAlias}-#{$colorAlias} {
+            #{$propertyName}: $colorValue;
+          }
+          .#{$propertyAlias}-#{$colorAlias}\:hover:hover {
+            #{$propertyName}: $colorValue;
+          }
+          .#{$propertyAlias}-#{$colorAlias}#{$modifierAlias}\@#{$media} {
+            #{$propertyName}: call($modifyMethod, $colorValue, $modifyValue);
+          }
+          .#{$propertyAlias}-#{$colorAlias}#{$modifierAlias}\@#{$media}\:hover:hover {
+            #{$propertyName}: call($modifyMethod, $colorValue, $modifyValue);
+          }
+    
+        }
+    
       }
-
-      .bgc-#{$alias}\@#{$media}\:hover:hover {
-        background-color: $value
-      }
-
-      .bc-#{$alias}\@#{$media} {
-        border-color: $value
-      }
-
-      .bc-#{$alias}\@#{$media}\:hover:hover {
-        border-color: $value
-      }
-
+      
     }
-
   }
 }

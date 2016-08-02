@@ -1,21 +1,21 @@
 
-$color-blank:         #fff;
-$color-dark:          #666;
-$color-primary:       #0066cc;
+$color-properties: (
+    c color,
+    bc border-color,
+    bgc background-color,
+) !default;
 
 $color-list: (
     blank #fff,
-    blank\- darken($color-blank, 5%),
-    blank\-\- darken($color-blank, 15%),
-    dark $color-dark,
-    dark\+ lighten($color-dark, 5%),
-    dark\+\+ lighten($color-dark, 15%),
-    dark\- darken($color-dark, 5%),
-    dark\-\- darken($color-dark, 15%),
-    primary $color-primary,
-    primary\+ lighten($color-primary, 5%),
-    primary\+\+ lighten($color-primary, 15%),
-    primary\+\+\+ lighten($color-primary, 55%),
-    primary\- darken($color-primary, 5%),
-    primary\-\- darken($color-primary, 15%),
-);
+    dark #666,
+    primary #0066cc,
+) !default;
+
+$color-modifiers: (
+    \- darken 5%,
+    \-\- darken 15%,
+    \-\-\- darken 50%,
+    \+ lighten 5%,
+    \+\+ lighten 15%,
+    \+\+\+ lighten 50%,
+) !default;
