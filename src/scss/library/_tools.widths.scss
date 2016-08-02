@@ -1,0 +1,42 @@
+
+/**
+ * Add fractal widths for the given count of columns.
+ *
+ * Examples:
+ * .1/12          This will be 1/12 of 100% width
+ */
+@mixin columns($count, $breakpoints) {
+
+  @for $i from 1 through $count {
+
+    // Add the fractal width utility class
+    .#{$widths-namespace}#{$i}\/#{$count} {
+      width: $i/$count * 100% !important;
+    }
+    .#{$widths-namespace}#{$i}\/#{$count}\:hover:hover {
+      width: $i/$count * 100% !important;
+    }
+
+    @each $breakpoint in $breakpoints {
+
+      $media: nth($breakpoint, 1);
+      $condition: nth($breakpoint, 2);
+
+      @media #{$condition} {
+
+        // Add the fractal width utility class
+        .#{$widths-namespace}#{$i}\/#{$count}\@#{$media} {
+          width: $i/$count * 100% !important;
+        }
+        .#{$widths-namespace}#{$i}\/#{$count}\@#{$media}\:hover:hover {
+          width: $i/$count * 100% !important;
+        }
+
+      }
+
+    }
+
+  }
+}
+
+@include columns($widths-count, $breakpoints);

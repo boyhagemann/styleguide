@@ -1,0 +1,33 @@
+
+@each $family in $font-families {
+
+  $alias: nth($family, 1);
+  $value: nth($family, 2);
+
+  .#{$font-namespace}#{$alias} {
+    font-family: $value;
+  }
+
+  .#{$font-namespace}#{$alias}\:hover:hover {
+    font-family: $value;
+  }
+
+  @each $breakpoint in $breakpoints {
+
+    $media: nth($breakpoint, 1);
+    $condition: nth($breakpoint, 2);
+
+    @media #{$condition} {
+
+      .#{$font-namespace}#{$alias}\@#{$media} {
+        font-family: $value;
+      }
+
+      .#{$font-namespace}#{$alias}\@#{$media}\:hover:hover {
+        font-family: $value;
+      }
+
+    }
+
+  }
+}

@@ -1,0 +1,12 @@
+
+
+@mixin fontSize($size, $lineheight: auto) {
+  font-size: round($size);
+
+  @if($lineheight == auto) {
+    line-height: round($size * ($base-line-height / $base-font-size));
+  }
+  @else {
+    line-height: round($lineheight);
+  }
+}

@@ -1,0 +1,33 @@
+
+@each $size in $size-sizes {
+
+  $alias: nth($size, 1);
+  $value: nth($size, 2);
+
+  .#{$size-namespace}#{$alias} {
+    @include fontSize($value);
+  }
+
+  .#{$size-namespace}#{$alias}\:hover:hover {
+    @include fontSize($value);
+  }
+
+  @each $breakpoint in $breakpoints {
+
+    $media: nth($breakpoint, 1);
+    $condition: nth($breakpoint, 2);
+
+    @media #{$condition} {
+
+      .#{$size-namespace}#{$alias}\@#{$media} {
+        @include fontSize($value);
+      }
+
+      .#{$size-namespace}#{$alias}\@#{$media}\:hover:hover {
+        @include fontSize($value);
+      }
+
+    }
+
+  }
+}

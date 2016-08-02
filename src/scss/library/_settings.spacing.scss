@@ -1,0 +1,31 @@
+$base-margin: 1em;
+
+$doubles: (
+    '' 1,
+    '-' -1
+);
+$sizes: (
+    '' 1,
+    0 0,
+    \+ 2,
+    \+\+ 4,
+    \+\+\+ 8,
+    \- .5,
+    \-\- .25,
+    \-\-\- .1,
+);
+
+$spacings: (
+    'm' 'margin',
+    'p' 'padding'
+);
+
+$directions: (
+    '' (''),
+    'v' ('-top', '-bottom'),
+    'h' ('-left', '-right'),
+    't' ('-top'),
+    'b' ('-bottom'),
+    'l' ('-left'),
+    'r' ('-right')
+);

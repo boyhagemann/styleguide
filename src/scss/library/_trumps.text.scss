@@ -1,0 +1,33 @@
+
+
+@each $prop in $text-props {
+
+  $alias: nth($prop, 1);
+  $property: nth($prop, 2);
+  $value: nth($prop, 3);
+
+  .#{$text-namespace}#{$alias} {
+    #{$property}: $value;
+  }
+  .#{$text-namespace}#{$alias}\:hover:hover {
+    #{$property}: $value;
+  }
+
+  @each $breakpoint in $breakpoints {
+
+    $media: nth($breakpoint, 1);
+    $condition: nth($breakpoint, 2);
+
+    @media #{$condition} {
+
+      .#{$text-namespace}#{$alias}\@#{$media} {
+        #{$property}: $value;
+      }
+      .#{$text-namespace}#{$alias}\@#{$media}\:hover:hover {
+        #{$property}: $value;
+      }
+
+    }
+
+  }
+}

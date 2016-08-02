@@ -1,0 +1,26 @@
+
+.box {
+  @include block;
+  //width: 100%;
+  list-style: none;
+  margin:  0;
+  padding: 0;
+  vertical-align: top;
+  position: relative;
+}
+.box--centered {
+  margin: 0 auto;
+  max-width: $base-max-width;
+  display: block;
+}
+
+.box--sticky-top {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+}
+.box--sticky-bottom {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+}

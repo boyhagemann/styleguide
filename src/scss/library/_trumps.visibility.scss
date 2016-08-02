@@ -1,0 +1,34 @@
+
+@each $visibility in $visibility-list {
+
+  $alias: nth($visibility, 1);
+  $property: nth($visibility, 2);
+  $value: nth($visibility, 3);
+
+  .#{$visibility-namespace}#{$alias} {
+    #{$property}: $value;
+  }
+
+  .#{$visibility-namespace}#{$alias}\:hover:hover {
+    #{$property}: $value;
+  }
+
+  @each $breakpoint in $breakpoints {
+
+    $media: nth($breakpoint, 1);
+    $condition: nth($breakpoint, 2);
+
+    @media #{$condition} {
+
+      .#{$visibility-namespace}#{$alias}\@#{$media} {
+        #{$property}: $value;
+      }
+
+      .#{$visibility-namespace}#{$alias}\@#{$media}\:hover:hover {
+        #{$property}: $value;
+      }
+
+    }
+
+  }
+}

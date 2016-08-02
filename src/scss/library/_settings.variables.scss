@@ -1,0 +1,46 @@
+
+/**
+ * Base
+ */
+$base-spacing:        36px !default;
+$base-margin:         $base-spacing !default;
+$base-font-size:      18px !default;
+$base-line-height:    $base-font-size !default;
+
+// Box
+$base-max-width:      1200px !default;
+
+
+$color-blank:         #fff;
+$color-dark:          #666;
+$color-primary:       #0066cc;
+
+$colors: (
+  blank #fff,
+  blank\- darken($color-blank, 5%),
+  blank\-\- darken($color-blank, 15%),
+  dark $color-dark,
+  dark\+ lighten($color-dark, 5%),
+  dark\+\+ lighten($color-dark, 15%),
+  dark\- darken($color-dark, 5%),
+  dark\-\- darken($color-dark, 15%),
+  primary $color-primary,
+  primary\+ lighten($color-primary, 5%),
+  primary\+\+ lighten($color-primary, 15%),
+  primary\+\+\+ lighten($color-primary, 55%),
+  primary\- darken($color-primary, 5%),
+  primary\-\- darken($color-primary, 15%),
+);
+
+
+/**
+ * Widths
+ */
+$columns:             12 !default;
+
+$breakpoints: (
+  'mobile'          'screen and(max-width: 499px)',
+  'tablet'          'screen and(min-width: 500px) and(max-width: 1023px)',
+  'tablet-and-up'   'screen and(min-width: 500px)',
+  'desk'            'screen and(min-width: 1024px)',
+) !default;

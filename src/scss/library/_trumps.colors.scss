@@ -1,0 +1,61 @@
+
+@each $color in $colors {
+
+  $colorAlias: nth($color, 1);
+  $colorCode: nth($color, 2);
+
+  .c-#{$colorAlias} {
+    color: $colorCode
+  }
+  .c-#{$colorAlias}\:hover:hover {
+    color: $colorCode
+  }
+  .bgc-#{$colorAlias} {
+    background-color: $colorCode
+  }
+  .bgc-#{$colorAlias}\:hover:hover {
+    background-color: $colorCode
+  }
+
+  .bc-#{$colorAlias} {
+    border-color: $colorCode
+  }
+  .bc-#{$colorAlias}\:hover:hover {
+    border-color: $colorCode
+  }
+
+  @each $breakpoint in $breakpoints {
+
+    $media: nth($breakpoint, 1);
+    $condition: nth($breakpoint, 2);
+
+    @media #{$condition} {
+
+      .c-#{$colorAlias}\@#{$media} {
+        color: $colorCode
+      }
+
+      .c-#{$colorAlias}\@#{$media}\:hover:hover {
+        color: $colorCode
+      }
+
+      .bgc-#{unquote($colorAlias)}\@#{$media} {
+        background-color: $colorCode
+      }
+
+      .bgc-#{unquote($colorAlias)}\@#{$media}\:hover:hover {
+        background-color: $colorCode
+      }
+
+      .bc-#{$colorAlias}\@#{$media} {
+        border-color: $colorCode
+      }
+
+      .bc-#{$colorAlias}\@#{$media}\:hover:hover {
+        border-color: $colorCode
+      }
+
+    }
+
+  }
+}

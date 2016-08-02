@@ -1,0 +1,79 @@
+
+
+@each $double in $doubles {
+  @each $spacing in $spacings {
+    @each $direction in $directions {
+
+      $prefix: nth($spacing, 1);
+      $property: nth($spacing, 2);
+
+      $direct: nth($direction, 1);
+      $suffixes: nth($direction, 2);
+
+      $side: nth($double, 1);
+      $sign: nth($double, 2);
+
+
+      // Add the sizes
+      @each $size in $sizes {
+
+        $increment: nth($size, 1);
+        $multiplier: nth($size, 2);
+
+        .#{$side}#{$prefix}#{$direct}#{$increment} {
+          @each $suffix in $suffixes {
+            #{$property}#{$suffix}: $sign * $base-margin * $multiplier !important;
+          }
+        }
+
+        // Add the responsive utility classes
+        @each $breakpoint in $breakpoints {
+
+          $alias: nth($breakpoint, 1);
+          $condition: nth($breakpoint, 2);
+
+          .#{$side}#{$prefix}#{$direct}#{$increment}\@#{$alias} {
+
+            @media #{$condition} {
+              @each $suffix in $suffixes {
+                #{$property}#{$suffix}: $sign * $base-margin * $multiplier !important;
+              }
+            }
+
+          }
+        }
+
+      }
+
+      // Add the fractal widths
+      @for $i from 1 through $columns {
+
+        // Add the fractal width utility class
+        .#{$side}#{$prefix}#{$direct}-#{$i}\/#{$columns} {
+          @each $suffix in $suffixes {
+            #{$property}#{$suffix}: $i/$columns * 100% !important;
+          }
+        }
+
+        // Add the responsive utility classes
+        @each $breakpoint in $breakpoints {
+
+          $alias: nth($breakpoint, 1);
+          $condition: nth($breakpoint, 2);
+
+          .#{$side}#{$prefix}#{$direct}-#{$i}\/#{$columns}\@#{$alias} {
+
+            @media #{$condition} {
+              @each $suffix in $suffixes {
+                #{$property}#{$suffix}: $i/$columns * 100% !important;
+              }
+            }
+
+          }
+        }
+
+      }
+
+    }
+  }
+}
