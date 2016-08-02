@@ -1,27 +1,27 @@
 
-@each $color in $colors {
+@each $color in $color-list {
 
-  $colorAlias: nth($color, 1);
-  $colorCode: nth($color, 2);
+  $alias: nth($color, 1);
+  $value: nth($color, 2);
 
-  .c-#{$colorAlias} {
-    color: $colorCode
+  .c-#{$alias} {
+    color: $value
   }
-  .c-#{$colorAlias}\:hover:hover {
-    color: $colorCode
+  .c-#{$alias}\:hover:hover {
+    color: $value
   }
-  .bgc-#{$colorAlias} {
-    background-color: $colorCode
+  .bgc-#{$alias} {
+    background-color: $value
   }
-  .bgc-#{$colorAlias}\:hover:hover {
-    background-color: $colorCode
+  .bgc-#{$alias}\:hover:hover {
+    background-color: $value
   }
 
-  .bc-#{$colorAlias} {
-    border-color: $colorCode
+  .bc-#{$alias} {
+    border-color: $value
   }
-  .bc-#{$colorAlias}\:hover:hover {
-    border-color: $colorCode
+  .bc-#{$alias}\:hover:hover {
+    border-color: $value
   }
 
   @each $breakpoint in $breakpoints {
@@ -31,28 +31,28 @@
 
     @media #{$condition} {
 
-      .c-#{$colorAlias}\@#{$media} {
-        color: $colorCode
+      .c-#{$alias}\@#{$media} {
+        color: $value
       }
 
-      .c-#{$colorAlias}\@#{$media}\:hover:hover {
-        color: $colorCode
+      .c-#{$alias}\@#{$media}\:hover:hover {
+        color: $value
       }
 
-      .bgc-#{unquote($colorAlias)}\@#{$media} {
-        background-color: $colorCode
+      .bgc-#{$alias}\@#{$media} {
+        background-color: $value
       }
 
-      .bgc-#{unquote($colorAlias)}\@#{$media}\:hover:hover {
-        background-color: $colorCode
+      .bgc-#{$alias}\@#{$media}\:hover:hover {
+        background-color: $value
       }
 
-      .bc-#{$colorAlias}\@#{$media} {
-        border-color: $colorCode
+      .bc-#{$alias}\@#{$media} {
+        border-color: $value
       }
 
-      .bc-#{$colorAlias}\@#{$media}\:hover:hover {
-        border-color: $colorCode
+      .bc-#{$alias}\@#{$media}\:hover:hover {
+        border-color: $value
       }
 
     }

@@ -1,9 +1,10 @@
-$base-margin: 1em;
+$base-spacing: 1em !default;
 
 $doubles: (
     '' 1,
     '-' -1
-);
+) !default;
+
 $sizes: (
     '' 1,
     0 0,
@@ -13,12 +14,12 @@ $sizes: (
     \- .5,
     \-\- .25,
     \-\-\- .1,
-);
+) !default;
 
 $spacings: (
     'm' 'margin',
     'p' 'padding'
-);
+) !default;
 
 $directions: (
     '' (''),
@@ -28,4 +29,4 @@ $directions: (
     'b' ('-bottom'),
     'l' ('-left'),
     'r' ('-right')
-);
+) !default;

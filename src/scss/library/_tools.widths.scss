@@ -39,4 +39,4 @@
   }
 }
 
-@include columns($widths-count, $breakpoints);
+@include columns($base-columns, $breakpoints);

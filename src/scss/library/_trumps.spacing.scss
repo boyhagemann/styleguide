@@ -22,7 +22,7 @@
 
         .#{$side}#{$prefix}#{$direct}#{$increment} {
           @each $suffix in $suffixes {
-            #{$property}#{$suffix}: $sign * $base-margin * $multiplier !important;
+            #{$property}#{$suffix}: $sign * $base-spacing * $multiplier !important;
           }
         }
 
@@ -36,7 +36,7 @@
 
             @media #{$condition} {
               @each $suffix in $suffixes {
-                #{$property}#{$suffix}: $sign * $base-margin * $multiplier !important;
+                #{$property}#{$suffix}: $sign * $base-spacing * $multiplier !important;
               }
             }
 
@@ -46,12 +46,12 @@
       }
 
       // Add the fractal widths
-      @for $i from 1 through $columns {
+      @for $i from 1 through $base-columns {
 
         // Add the fractal width utility class
-        .#{$side}#{$prefix}#{$direct}-#{$i}\/#{$columns} {
+        .#{$side}#{$prefix}#{$direct}-#{$i}\/#{$base-columns} {
           @each $suffix in $suffixes {
-            #{$property}#{$suffix}: $i/$columns * 100% !important;
+            #{$property}#{$suffix}: $i/$base-columns * 100% !important;
           }
         }
 
@@ -61,11 +61,11 @@
           $alias: nth($breakpoint, 1);
           $condition: nth($breakpoint, 2);
 
-          .#{$side}#{$prefix}#{$direct}-#{$i}\/#{$columns}\@#{$alias} {
+          .#{$side}#{$prefix}#{$direct}-#{$i}\/#{$base-columns}\@#{$alias} {
 
             @media #{$condition} {
               @each $suffix in $suffixes {
-                #{$property}#{$suffix}: $i/$columns * 100% !important;
+                #{$property}#{$suffix}: $i/$base-columns * 100% !important;
               }
             }
 

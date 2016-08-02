@@ -1,15 +1,17 @@
 
-@import './library/settings.variables';
+@import './library/settings.box';
 @import './library/settings.spacing';
 @import './library/settings.fonts';
+@import './library/settings.colors';
 @import './library/settings.sizes';
 @import './library/settings.widths';
 @import './library/settings.text';
 @import './library/settings.visibility';
+@import './library/settings.responsive';
 @import './library/tools.box';
 @import './library/tools.fonts';
 @import './library/tools.widths';
-@import './library/objects.boxes';
+@import './library/objects.box';
 @import './library/objects.buttons';
 @import './library/trumps.spacing';
 @import './library/trumps.fonts';
